@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- METADATOS SEO -->
+    <meta name="description" content="Conoce a Kevin Luna - Full Stack Developer y Data Scientist con 2+ años de experiencia. Especializado en desarrollo web y business intelligence.">
+    <meta name="keywords" content="Kevin Luna, Full Stack Developer, Data Scientist, Business Intelligence, tecnologías web, experiencia profesional, formación">
+    <meta name="author" content="Kevin Luna - DataVantex">
+    
+    <title>Sobre Mí | DataVantex - Kevin Luna</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botón de cambio de tema -->
+    <div class="theme-switcher">
+        <button id="themeToggle" class="theme-toggle-btn">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+        </button>
+    </div>
+    
+    <!-- Canvas para efecto de fluido viscoso en el cursor -->
+    <div class="viscous-cursor-container">
+        <canvas id="viscousCanvas"></canvas>
+        <div class="cursor-glow"></div>
+    </div>
+    
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/+542954217949" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Hablamos?</span>
+    </a>
+    
+    <!-- Navegación Principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <span class="logo-text">DATAVANTEX</span>
+                    <span class="logo-subtitle">by Kevin Luna</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#proyectos">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html#tecnologias">Tecnologías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section para About -->
+    <section class="about-hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-80">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4">
+                        <span class="text-gradient">Experiencia</span> y 
+                        <span class="text-gradient">Tecnología</span>
+                    </h1>
+                    <p class="lead mb-4">
+                        Combinando conocimientos técnicos avanzados con una visión empresarial estratégica
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Carrusel de Herramientas -->
+    <section class="tools-section" id="tecnologias">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Stack Tecnológico</h2>
+                <p class="lead text-muted">Herramientas y tecnologías que domino</p>
+                <div class="section-line mx-auto"></div>
+            </div>
+            
+            <!-- Carrusel de Herramientas -->
+            <div class="tools-carousel-container">
+                <div id="toolsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center g-4">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fab fa-node-js"></i>
+                                        </div>
+                                        <div class="tool-name">Node.js</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-server"></i>
+                                        </div>
+                                        <div class="tool-name">Express</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fab fa-react"></i>
+                                        </div>
+                                        <div class="tool-name">React</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fab fa-bootstrap"></i>
+                                        </div>
+                                        <div class="tool-name">Bootstrap</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center g-4">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                        <div class="tool-name">Vite</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-train"></i>
+                                        </div>
+                                        <div class="tool-name">Railway</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-cloud"></i>
+                                        </div>
+                                        <div class="tool-name">Vercel</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fab fa-html5"></i>
+                                        </div>
+                                        <div class="tool-name">HTML5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center g-4">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fab fa-css3-alt"></i>
+                                        </div>
+                                        <div class="tool-name">CSS3</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fab fa-js-square"></i>
+                                        </div>
+                                        <div class="tool-name">JavaScript</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </div>
+                                        <div class="tool-name">Power BI</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-table"></i>
+                                        </div>
+                                        <div class="tool-name">Google Sheets</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4 -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center g-4">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-puzzle-piece"></i>
+                                        </div>
+                                        <div class="tool-name">Make.com</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <div class="tool-name">IA</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-cogs"></i>
+                                        </div>
+                                        <div class="tool-name">Automatización</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-code-branch"></i>
+                                        </div>
+                                        <div class="tool-name">Git</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles del carrusel -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#toolsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#toolsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                    
+                    <!-- Indicadores -->
+                    <div class="carousel-indicators position-relative mt-4">
+                        <button type="button" data-bs-target="#toolsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#toolsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#toolsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#toolsCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up">
+                <p class="lead">Este stack tecnológico me permite desarrollar soluciones completas, desde el frontend hasta el backend, incluyendo análisis de datos y automatización de procesos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section class="about-section parallax-section" id="sobre-mi">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-image">
+                        <div class="image-container">
+                            <img src="public/Foto-perfil.jpg" alt="Kevin Luna">
+                            <div class="image-glow"></div>
+                            <div class="image-badge">
+                                <i class="fas fa-award"></i>
+                                <span>2 años de experiencia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-content">
+                        <h2 class="display-4 fw-bold mb-4">Kevin Luna</h2>
+                        <div class="about-badges">
+                            <span class="badge">Full Stack Developer</span>
+                            <span class="badge">Data Scientist</span>
+                            <span class="badge">Business Intelligence</span>
+                        </div>
+                        <p class="lead mb-4">
+                            Con <strong>2 años de experiencia profesional</strong> combinando desarrollo web y análisis de datos, 
+                            he creado soluciones que transforman datos complejos en ventajas competitivas para negocios 
+                            de diversos sectores.
+                        </p>
+                        
+                        <div class="about-education mb-4">
+                            <h5 class="fw-bold">Trayectoria Académica:</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-graduation-cap text-primary me-2"></i> <strong>Formación en Administración</strong> con orientación en Emprendimientos</li>
+                                <li><i class="fas fa-certificate text-primary me-2"></i> <strong>Formación continua en tecnologías web</strong> y ciencia de datos</li>
+                                <li><i class="fas fa-rocket text-primary me-2"></i> <strong>En constante evolución</strong> en el ámbito tecnológico y empresarial</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="about-values">
+                            <div class="value-item">
+                                <i class="fas fa-crosshairs"></i>
+                                <div>
+                                    <h5>Precisión</h5>
+                                    <p>Desarrollo y análisis con atención al detalle</p>
+                                </div>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-bolt"></i>
+                                <div>
+                                    <h5>Performance</h5>
+                                    <p>Soluciones optimizadas para máxima velocidad</p>
+                                </div>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h5>Impacto</h5>
+                                    <p>Resultados medibles y cuantificables</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="about-experience mt-4">
+                            <h5 class="fw-bold">Mi enfoque:</h5>
+                            <p>Combino mi formación académica en administración con mis habilidades técnicas para entender 
+                            tanto las necesidades empresariales como las soluciones tecnológicas. Esto me permite 
+                            desarrollar no solo lo que funciona técnicamente, sino lo que realmente genera valor 
+                            para el negocio.</p>
+                        </div>
+                        
+                        <div class="about-cta mt-4">
+                            <a href="contact.html" class="btn btn-primary">
+                                <i class="fas fa-calendar me-2"></i>Agendar Consulta
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Experiencia -->
+    <section class="experience-section">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="display-4 fw-bold mb-3">Mi Experiencia</h2>
+                <p class="lead text-muted">Trayectoria profesional y logros destacados</p>
+                <div class="section-line mx-auto"></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="exp-card">
+                        <div class="exp-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Desarrollo Web</h4>
+                        <p>2 años desarrollando aplicaciones web de alto rendimiento con React, Node.js y bases de datos SQL/NoSQL.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="exp-card">
+                        <div class="exp-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Análisis de Datos</h4>
+                        <p>Especializado en Business Intelligence, dashboards interactivos y análisis predictivo con Python y Power BI.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="exp-card">
+                        <div class="exp-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Automatización</h4>
+                        <p>Creación de sistemas automatizados para optimizar procesos empresariales y aumentar la eficiencia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <span class="logo-text">DATAVANTEX</span>
+                        <span class="logo-subtitle">by Kevin Luna</span>
+                    </div>
+                    <p class="mt-3">Transformando datos en soluciones de impacto</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-codepen"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <p class="mb-0">&copy; 2024 DataVantex. Todos los derechos reservados.</p>
+                    <p class="mb-0">Desarrollado por <a href="https://www.kevinluna.wuaze.com/" target="_blank" class="footer-link" style="color: #f4a700;">Kevin Luna</a></p>
+                    <p class="mb-0"><a href="#" class="footer-link">Política de Privacidad</a> | <a href="#" class="footer-link">Términos y Condiciones</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Script personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>

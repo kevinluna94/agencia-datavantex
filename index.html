@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- METADATOS SEO PROFESIONAL -->
+    <meta name="description" content="DataVantex - Desarrollo Web Full Stack & Business Intelligence por Kevin Luna. Transformamos datos en soluciones de impacto con 2+ años de experiencia en desarrollo web, análisis de datos y automatización.">
+    <meta name="keywords" content="desarrollo web, business intelligence, análisis de datos, full stack developer, data science, desarrollo de software, dashboard, React, Node.js, Python, Power BI, automatización, Madrid, España">
+    <meta name="author" content="Kevin Luna - DataVantex">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="DataVantex | Desarrollo Web Full Stack & Business Intelligence">
+    <meta property="og:description" content="Transformamos datos complejos en soluciones web de alto impacto. Desarrollo Full Stack y Business Intelligence con resultados medibles.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://datavantex.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DataVantex | Desarrollo Web & Business Intelligence">
+    <meta name="twitter:description" content="Soluciones tecnológicas que transforman datos en ventajas competitivas. Full Stack Development y Data Science.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://datavantex.com">
+    
+    <title>DataVantex | Desarrollo Web Full Stack & Business Intelligence</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botón de cambio de tema -->
+    <div class="theme-switcher">
+        <button id="themeToggle" class="theme-toggle-btn">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+        </button>
+    </div>
+    
+    <!-- Canvas para efecto de fluido viscoso en el cursor -->
+    <div class="viscous-cursor-container">
+        <canvas id="viscousCanvas"></canvas>
+        <div class="cursor-glow"></div>
+    </div>
+    
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/+542954217949" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Hablamos?</span>
+    </a>
+    
+    <!-- Navegación Principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-container">
+                    <span class="logo-text">DATAVANTEX</span>
+                    <span class="logo-subtitle">by Kevin Luna</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#proyectos">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html#tecnologias">Tecnologías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero con Efecto de Fluido Viscoso -->
+    <section class="hero-section" id="inicio">
+        <!-- Video/Imagen de Fondo -->
+        <div class="hero-background">
+            <div class="bg-layer bg-video">
+                <!-- Video principal con fallback a imagen -->
+                <video autoplay muted loop playsinline class="hero-video" id="heroVideo" poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-data-streaming-through-a-circuit-board-41537-large.mp4" type="video/mp4">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-data-streaming-through-a-circuit-board-41537-large.webm" type="video/webm">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+                <div class="video-fallback" id="videoFallback"></div>
+                <div class="video-overlay"></div>
+                <button class="video-control" id="videoControl">
+                    <i class="fas fa-play" id="playIcon"></i>
+                    <i class="fas fa-pause" id="pauseIcon" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Capa Frontal que se revela con el cursor (Imagen Transparente) -->
+        <div class="hero-reveal-layer" id="revealLayer">
+            <div class="reveal-content">
+                <canvas id="fluidRevealCanvas"></canvas>
+                <!-- Imagen transparente que se revela -->
+                <div class="reveal-image" id="revealImage"></div>
+            </div>
+        </div>
+        
+        <!-- Contenido Hero -->
+        <div class="hero-content-wrapper">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="hero-content">
+                            <div class="hero-badge">
+                                <span>Full Stack Developer</span>
+                                <span>Data Scientist</span>
+                            </div>
+                            <h1 class="display-2 fw-bold mb-4">
+                                <span class="text-gradient">Datos</span> que transforman, 
+                                <span class="text-gradient">Código</span> que impacta
+                            </h1>
+                            <p class="lead mb-4 hero-subtitle">
+                                Kevin Luna combina 2 años de experiencia en desarrollo web de alto rendimiento 
+                                con análisis de datos avanzado para crear soluciones escalables que impulsan 
+                                el crecimiento de tu negocio.
+                            </p>
+                            <div class="hero-buttons">
+                                <a href="contact.html" class="btn btn-primary btn-lg me-3 cta-button">
+                                    <i class="fas fa-bolt me-2"></i>Iniciar Proyecto
+                                </a>
+                                <a href="#proyectos" class="btn btn-outline-light btn-lg">
+                                    <i class="fas fa-chart-line me-2"></i>Ver Proyectos
+                                </a>
+                            </div>
+                            <div class="hero-features mt-5">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="feature-item">
+                                            <i class="fas fa-rocket"></i>
+                                            <span>Alta Performance</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="feature-item">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>Seguridad Avanzada</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="feature-item">
+                                            <i class="fas fa-chart-bar"></i>
+                                            <span>Analítica en Tiempo Real</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" data-count="50">0</div>
+                                    <div class="stat-label">Proyectos Completados</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" data-count="25">0</div>
+                                    <div class="stat-label">Análisis de Datos</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number" data-count="2">0<sup>+ años</sup></div>
+                                    <div class="stat-label">Experiencia</div>
+                                </div>
+                            </div>
+                            <div class="hero-cta mt-4">
+                                <p>¿Listo para transformar tu negocio?</p>
+                                <a href="contact.html" class="btn btn-outline-primary btn-sm">Solicitar Cotización</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicador Scroll -->
+        <div class="hero-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+            <span>Desplázate</span>
+        </div>
+        
+        <!-- Efecto de partículas en el fondo -->
+        <div class="hero-particles">
+            <div class="particle"><i class="fas fa-js"></i></div>
+            <div class="particle"><i class="fab fa-python"></i></div>
+            <div class="particle"><i class="fas fa-chart-bar"></i></div>
+            <div class="particle"><i class="fas fa-server"></i></div>
+            <div class="particle"><i class="fas fa-database"></i></div>
+            <div class="particle"><i class="fab fa-react"></i></div>
+        </div>
+    </section>
+
+    <!-- Sección Parallax con Imagen Fija - Impacto Visual -->
+    <section class="impact-section parallax-fixed-section">
+        <div class="parallax-fixed-bg"></div>
+        <div class="parallax-fixed-content">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center" data-aos="zoom-in" data-aos-duration="1500">
+                        <h2 class="display-3 fw-bold mb-4">
+                            Donde la <span class="text-primary">ciencia de datos</span> se encuentra con el 
+                            <span class="text-primary">desarrollo web</span>
+                        </h2>
+                        <p class="lead mb-5 impact-text">
+                            Transformamos datos complejos en interfaces intuitivas. 
+                            Creamos dashboards interactivos que cuentan historias y aplicaciones web 
+                            que procesan millones de puntos de datos en tiempo real.
+                        </p>
+                        <div class="impact-stats">
+                            <div class="row g-4">
+                                <div class="col-md-3">
+                                    <div class="impact-stat">
+                                        <div class="impact-value">100K+</div>
+                                        <div class="impact-label">Puntos de datos procesados</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="impact-stat">
+                                        <div class="impact-value">0.5s</div>
+                                        <div class="impact-label">Tiempo de respuesta</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="impact-stat">
+                                        <div class="impact-value">100%</div>
+                                        <div class="impact-label">Satisfacción</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="impact-stat">
+                                        <div class="impact-value">∞</div>
+                                        <div class="impact-label">Escalabilidad</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios Especializados -->
+    <section class="services-section parallax-section" id="servicios">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="display-3 fw-bold mb-3">Especialización de Impacto</h2>
+                <p class="lead text-muted">Dos disciplinas, resultados excepcionales</p>
+                <div class="section-line mx-auto"></div>
+            </div>
+            
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="service-card service-web">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="service-title">Desarrollo Web Full Stack</h3>
+                            <div class="service-badge">Alta Performance</div>
+                        </div>
+                        <p class="service-description">
+                            Aplicaciones web modernas, escalables y de alto rendimiento. 
+                            Desde dashboards empresariales hasta plataformas complejas de procesamiento de datos.
+                        </p>
+                        <div class="service-features">
+                            <h5>Tecnologías Clave:</h5>
+                            <div class="features-grid">
+                                <div class="feature">
+                                    <i class="fab fa-react"></i>
+                                    <span>React.js</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fab fa-node-js"></i>
+                                    <span>Node.js</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-database"></i>
+                                    <span>MySQL</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-server"></i>
+                                    <span>Railway</span>
+                                </div>
+                                <div class="feature">
+                                <i class="fas fa-cloud"></i>
+                                <span>Vercel</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Arquitectura escalable y mantenible</li>
+                            <li><i class="fas fa-check-circle"></i> Optimización de performance</li>
+                            <li><i class="fas fa-check-circle"></i> Seguridad de nivel empresarial</li>
+                            <li><i class="fas fa-check-circle"></i> Testing automatizado</li>
+                        </ul>
+                        <a href="contact.html" class="btn-service">
+                            <i class="fas fa-arrow-right"></i> Solicitar Desarrollo
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="service-card service-data">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="service-title">Business Intelligence & Análisis de Datos</h3>
+                            <div class="service-badge">Data Science</div>
+                        </div>
+                        <p class="service-description">
+                            Transformamos datos en decisiones estratégicas. 
+                            Dashboards interactivos, análisis predictivo y visualización de datos avanzada.
+                        </p>
+                        <div class="service-features">
+                            <h5>Tecnologías Clave:</h5>
+                            <div class="features-grid">
+                                <div class="feature">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Power BI</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Machine Learning</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Big Data</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check-circle"></i> Dashboards en tiempo real</li>
+                            <li><i class="fas fa-check-circle"></i> Análisis predictivo</li>
+                            <li><i class="fas fa-check-circle"></i> ETL y Data Warehousing</li>
+                            <li><i class="fas fa-check-circle"></i> Storytelling con datos</li>
+                        </ul>
+                        <a href="contact.html" class="btn-service">
+                            <i class="fas fa-arrow-right"></i> Solicitar Análisis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Efecto Parallax para servicios -->
+        <div class="services-parallax">
+            <div class="parallax-element" data-depth="0.1"></div>
+            <div class="parallax-element" data-depth="0.3"></div>
+            <div class="parallax-element" data-depth="0.5"></div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos de Impacto -->
+    <section class="projects-section parallax-section" id="proyectos">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="display-3 fw-bold mb-3">Proyectos que Generan Impacto</h2>
+                <p class="lead text-muted">Casos de éxito en desarrollo web y análisis de datos</p>
+                <div class="section-line mx-auto"></div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-badge">BI Dashboard</div>
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard Financiero">
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span>PowerBi</span>
+                                    <span>Python</span>
+                                    <span>Sheet</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Dashboard Financiero en Tiempo Real</h3>
+                            <p class="project-description">
+                                Sistema de visualización de datos financieros con actualización en tiempo real y análisis predictivo.
+                            </p>
+                            <div class="project-impact">
+                                <span><i class="fas fa-chart-line"></i> +45% eficiencia</span>
+                                <span><i class="fas fa-clock"></i> 200ms response</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-badge">E-commerce PampTienda</div>
+                        <div class="project-image">
+                            <img src="public/image.png" alt="Plataforma E-commerce">
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span>React.js</span>
+                                    <span>Node.js</span>
+                                    <span>MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Plataforma E-commerce con BI Integrado</h3>
+                            <p class="project-description">
+                                E-commerce con Productos, Pedidos, Clientes, Logistica, Conexiones y Dashboard analítico.
+                            </p>
+                            <div class="project-impact">
+                                <span><i class="fas fa-shopping-cart"></i> +300% conversión</span>
+                                <span><i class="fas fa-database"></i> +1000 registros</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-card">
+                        <div class="project-badge">Data Visualization</div>
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Visualización de Datos">
+                            <div class="project-overlay">
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sistema de Visualización de Datos Masivos</h3>
+                            <p class="project-description">
+                                Plataforma para visualizar y analizar grandes volúmenes de datos con filtros avanzados.
+                            </p>
+                            <div class="project-impact">
+                                <span><i class="fas fa-tachometer-alt"></i> 10x más rápido</span>
+                                <span><i class="fas fa-chart-pie"></i> 15 dimensiones</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="contact.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-briefcase me-2"></i>¿Tienes un proyecto similar?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <span class="logo-text">DATAVANTEX</span>
+                        <span class="logo-subtitle">by Kevin Luna</span>
+                    </div>
+                    <p class="mt-3">Transformando datos en soluciones de impacto</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-codepen"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <p class="mb-0">&copy; 2024 DataVantex. Todos los derechos reservados.</p>
+                    <p class="mb-0">Desarrollado por <a href="https://www.kevinluna.wuaze.com/" target="_blank" class="footer-link" style="color: #f4a700;">Kevin Luna</a></p>
+                    <p class="mb-0"><a href="#" class="footer-link">Política de Privacidad</a> | <a href="#" class="footer-link">Términos y Condiciones</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Script personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
