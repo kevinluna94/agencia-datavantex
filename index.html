@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- METADATOS SEO PROFESIONAL -->
-    <meta name="description" content="DataVantex Agencia — Desarrollo Web Full Stack, SEO y Posicionamiento Web. Creamos sitios optimizados, automatización y soluciones digitales para hacer crecer tu negocio.">
-    <meta name="keywords" content="desarrollo web, seo, posicionamiento web, business intelligence, análisis de datos, full stack developer, automatización, dashboards, React, Node.js, Python, Power BI">
+    <meta name="description"
+        content="DataVantex Agencia — Desarrollo Web Full Stack, SEO y Posicionamiento Web. Creamos sitios optimizados, automatización y soluciones digitales para hacer crecer tu negocio.">
+    <meta name="keywords"
+        content="desarrollo web, seo, posicionamiento web, business intelligence, análisis de datos, full stack developer, automatización, dashboards, React, Node.js, Python, Power BI">
     <meta name="author" content="Kevin Luna - DataVantex">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
 
     <meta name="google-site-verification" content="NTSrRmOyDsJtHTS4ywPSboYEq5FS9wrZ7PVNrMqcJRM" />
-    
+
     <!-- Open Graph para redes sociales -->
     <meta property="og:title" content="DataVantex Agencia | Desarrollo Web, SEO y Posicionamiento">
-    <meta property="og:description" content="Agencia digital especializada en desarrollo web, SEO y posicionamiento para negocios que buscan crecer en Google.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:description"
+        content="Agencia digital especializada en desarrollo web, SEO y posicionamiento para negocios que buscan crecer en Google.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
     <meta property="og:url" content="https://www.datavantex-agencia.com">
 
     <!-- ✅ SCHEMA ORG (JSON-LD) -->
-  <script type="application/ld+json">
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -37,12 +42,13 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="DataVantex | Desarrollo Web & Business Intelligence">
-    <meta name="twitter:description" content="Soluciones tecnológicas que transforman datos en ventajas competitivas. Full Stack Development y Data Science.">
-    
+    <meta name="twitter:description"
+        content="Soluciones tecnológicas que transforman datos en ventajas competitivas. Full Stack Development y Data Science.">
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.datavantex-agencia.com/">
 
-    
+
     <title>DataVantex Agencia | Desarrollo Web, SEO y Posicionamiento Web</title>
 
     <!-- Bootstrap 5 CSS -->
@@ -50,12 +56,15 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Botón de cambio de tema -->
     <div class="theme-switcher">
@@ -64,19 +73,13 @@
             <i class="fas fa-moon" style="display: none;"></i>
         </button>
     </div>
-    
-    <!-- Canvas para efecto de fluido viscoso en el cursor -->
-    <div class="viscous-cursor-container">
-        <canvas id="viscousCanvas"></canvas>
-        <div class="cursor-glow"></div>
-    </div>
-    
+
     <!-- Botón de WhatsApp flotante -->
     <a href="https://wa.me/+542954217949" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-tooltip">¿Hablamos?</span>
     </a>
-    
+
     <!-- Navegación Principal -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
@@ -120,9 +123,14 @@
         <div class="hero-background">
             <div class="bg-layer bg-video">
                 <!-- Video principal con fallback a imagen -->
-                <video autoplay muted loop playsinline class="hero-video" id="heroVideo" poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-data-streaming-through-a-circuit-board-41537-large.mp4" type="video/mp4">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-data-streaming-through-a-circuit-board-41537-large.webm" type="video/webm">
+                <video autoplay muted loop playsinline class="hero-video" id="heroVideo"
+                    poster="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-data-streaming-through-a-circuit-board-41537-large.mp4"
+                        type="video/mp4">
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-data-streaming-through-a-circuit-board-41537-large.webm"
+                        type="video/webm">
                     Tu navegador no soporta videos HTML5.
                 </video>
                 <div class="video-fallback" id="videoFallback"></div>
@@ -133,16 +141,8 @@
                 </button>
             </div>
         </div>
-        
-        <!-- Capa Frontal que se revela con el cursor (Imagen Transparente) -->
-        <div class="hero-reveal-layer" id="revealLayer">
-            <div class="reveal-content">
-                <canvas id="fluidRevealCanvas"></canvas>
-                <!-- Imagen transparente que se revela -->
-                <div class="reveal-image" id="revealImage"></div>
-            </div>
-        </div>
-        
+
+
         <!-- Contenido Hero -->
         <div class="hero-content-wrapper">
             <div class="container">
@@ -154,12 +154,12 @@
                                 <span>Data Scientist</span>
                             </div>
                             <h1 class="display-2 fw-bold mb-4">
-                                <span class="text-gradient">Datos</span> que transforman, 
+                                <span class="text-gradient">Datos</span> que transforman,
                                 <span class="text-gradient">Código</span> que impacta
                             </h1>
                             <p class="lead mb-4 hero-subtitle">
-                                Kevin Luna combina 2 años de experiencia en desarrollo web de alto rendimiento 
-                                con análisis de datos avanzado para crear soluciones escalables que impulsan 
+                                Kevin Luna combina 2 años de experiencia en desarrollo web de alto rendimiento
+                                con análisis de datos avanzado para crear soluciones escalables que impulsan
                                 el crecimiento de tu negocio.
                             </p>
                             <div class="hero-buttons">
@@ -232,22 +232,13 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Indicador Scroll -->
         <div class="hero-scroll-indicator">
             <i class="fas fa-chevron-down"></i>
             <span>Desplázate</span>
         </div>
-        
-        <!-- Efecto de partículas en el fondo -->
-        <div class="hero-particles">
-            <div class="particle"><i class="fas fa-js"></i></div>
-            <div class="particle"><i class="fab fa-python"></i></div>
-            <div class="particle"><i class="fas fa-chart-bar"></i></div>
-            <div class="particle"><i class="fas fa-server"></i></div>
-            <div class="particle"><i class="fas fa-database"></i></div>
-            <div class="particle"><i class="fab fa-react"></i></div>
-        </div>
+
     </section>
 
     <!-- Sección Parallax con Imagen Fija - Impacto Visual -->
@@ -258,12 +249,12 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10 text-center" data-aos="zoom-in" data-aos-duration="1500">
                         <h2 class="display-3 fw-bold mb-4">
-                            Donde la <span class="text-primary">ciencia de datos</span> se encuentra con el 
+                            Donde la <span class="text-primary">ciencia de datos</span> se encuentra con el
                             <span class="text-primary">desarrollo web</span>
                         </h2>
                         <p class="lead mb-5 impact-text">
-                            Transformamos datos complejos en interfaces intuitivas. 
-                            Creamos dashboards interactivos que cuentan historias y aplicaciones web 
+                            Transformamos datos complejos en interfaces intuitivas.
+                            Creamos dashboards interactivos que cuentan historias y aplicaciones web
                             que procesan millones de puntos de datos en tiempo real.
                         </p>
                         <div class="impact-stats">
@@ -300,6 +291,62 @@
         </div>
     </section>
 
+    <!-- Sección Partners / Trusted By -->
+    <section class="partners-section">
+        <div class="container" data-aos="fade-up">
+            <div class="partners-slider">
+                <!-- Logos representativos de tecnologías/herramientas -->
+                <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/bootstrap/7952B3" alt="Bootstrap" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Analytics" class="partner-logo">
+                <!-- Copia para el loop infinito -->
+                <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/bootstrap/7952B3" alt="Bootstrap" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" class="partner-logo">
+                <img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Analytics" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nuestro Proceso -->
+    <section class="process-section" id="proceso">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2 class="display-4 fw-bold mb-3">Nuestro Proceso de Trabajo</h2>
+                <p class="lead text-muted">Metodología ágil orientada a resultados tangibles</p>
+                <div class="section-line mx-auto"></div>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">01</div>
+                    <h4>Estrategia</h4>
+                    <p>Analizamos tus objetivos comerciales y diseñamos una hoja de ruta personalizada.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <h4>Diseño UX/UI</h4>
+                    <p>Creamos interfaces intuitivas centradas en la conversión y la experiencia del usuario.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <h4>Desarrollo</h4>
+                    <p>Construimos tu solución con las tecnologías más modernas y escalables del mercado.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">04</div>
+                    <h4>Lanzamiento</h4>
+                    <p>Desplegamos tu proyecto y realizamos optimizaciones continuas basadas en datos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Sección Servicios Especializados -->
     <section class="services-section parallax-section" id="servicios">
         <div class="container">
@@ -308,7 +355,7 @@
                 <p class="lead text-muted">Dos disciplinas, resultados excepcionales</p>
                 <div class="section-line mx-auto"></div>
             </div>
-            
+
             <div class="row g-5 justify-content-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
                     <div class="service-card service-web">
@@ -320,7 +367,7 @@
                             <div class="service-badge">Alta Performance</div>
                         </div>
                         <p class="service-description">
-                            Aplicaciones web modernas, escalables y de alto rendimiento. 
+                            Aplicaciones web modernas, escalables y de alto rendimiento.
                             Desde dashboards empresariales hasta plataformas complejas de procesamiento de datos.
                         </p>
                         <div class="service-features">
@@ -343,8 +390,8 @@
                                     <span>Railway</span>
                                 </div>
                                 <div class="feature">
-                                <i class="fas fa-cloud"></i>
-                                <span>Vercel</span>
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Vercel</span>
                                 </div>
                             </div>
                         </div>
@@ -359,7 +406,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                     <div class="service-card service-data">
                         <div class="service-header">
@@ -370,7 +417,7 @@
                             <div class="service-badge">Data Science</div>
                         </div>
                         <p class="service-description">
-                            Transformamos datos en decisiones estratégicas. 
+                            Transformamos datos en decisiones estratégicas.
                             Dashboards interactivos, análisis predictivo y visualización de datos avanzada.
                         </p>
                         <div class="service-features">
@@ -407,7 +454,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Efecto Parallax para servicios -->
         <div class="services-parallax">
             <div class="parallax-element" data-depth="0.1"></div>
@@ -424,13 +471,14 @@
                 <p class="lead text-muted">Casos de éxito en desarrollo web y análisis de datos</p>
                 <div class="section-line mx-auto"></div>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                     <div class="project-card">
                         <div class="project-badge">BI Dashboard</div>
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dashboard Financiero">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Dashboard Financiero">
                             <div class="project-overlay">
                                 <div class="project-tech">
                                     <span>PowerBi</span>
@@ -442,7 +490,8 @@
                         <div class="project-content">
                             <h3 class="project-title">Dashboard Financiero en Tiempo Real</h3>
                             <p class="project-description">
-                                Sistema de visualización de datos financieros con actualización en tiempo real y análisis predictivo.
+                                Sistema de visualización de datos financieros con actualización en tiempo real y
+                                análisis predictivo.
                             </p>
                             <div class="project-impact">
                                 <span><i class="fas fa-chart-line"></i> +45% eficiencia</span>
@@ -451,7 +500,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                     <div class="project-card">
                         <div class="project-badge">E-commerce PampTienda</div>
@@ -468,7 +517,8 @@
                         <div class="project-content">
                             <h3 class="project-title">Plataforma E-commerce con BI Integrado</h3>
                             <p class="project-description">
-                                E-commerce con Productos, Pedidos, Clientes, Logistica, Conexiones y Dashboard analítico.
+                                E-commerce con Productos, Pedidos, Clientes, Logistica, Conexiones y Dashboard
+                                analítico.
                             </p>
                             <div class="project-impact">
                                 <span><i class="fas fa-shopping-cart"></i> +300% conversión</span>
@@ -477,12 +527,13 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                     <div class="project-card">
                         <div class="project-badge">Data Visualization</div>
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Visualización de Datos">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                alt="Visualización de Datos">
                             <div class="project-overlay">
                                 <div class="project-tech">
                                     <span>Python</span>
@@ -503,7 +554,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="text-center mt-5">
                 <a href="contact.html" class="btn btn-primary btn-lg">
                     <i class="fas fa-briefcase me-2"></i>¿Tienes un proyecto similar?
@@ -533,8 +584,10 @@
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <p class="mb-0">&copy; 2024 DataVantex. Todos los derechos reservados.</p>
-                    <p class="mb-0">Desarrollado por <a href="https://www.kevinluna.wuaze.com/" target="_blank" class="footer-link" style="color: #f4a700;">Kevin Luna</a></p>
-                    <p class="mb-0"><a href="#" class="footer-link">Política de Privacidad</a> | <a href="#" class="footer-link">Términos y Condiciones</a></p>
+                    <p class="mb-0">Desarrollado por <a href="https://www.kevinluna.wuaze.com/" target="_blank"
+                            class="footer-link" style="color: #f4a700;">Kevin Luna</a></p>
+                    <p class="mb-0"><a href="#" class="footer-link">Política de Privacidad</a> | <a href="#"
+                            class="footer-link">Términos y Condiciones</a></p>
                 </div>
             </div>
         </div>
@@ -547,4 +600,5 @@
     <!-- Script personalizado -->
     <script src="script.js"></script>
 </body>
+
 </html>

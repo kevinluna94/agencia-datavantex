@@ -2,10 +2,12 @@
 /* VARIABLES Y CONFIGURACIÓN GENERAL */
 /* ==================== */
 :root {
-    --primary-color: #3b82f6;
-    --primary-dark: #2563eb;
-    --secondary-color: #8b5cf6;
-    --accent-color: #06b6d4;
+    --primary-color: #2563eb;
+    /* A slightly deeper, more professional blue */
+    --primary-dark: #1d4ed8;
+    --secondary-color: #6366f1;
+    /* Indigo instead of pure purple for a "premium" feel */
+    --accent-color: #0ea5e9;
     --dark-color: #0f172a;
     --darker-color: #020617;
     --light-color: #f8fafc;
@@ -15,12 +17,13 @@
     --danger-color: #ef4444;
     --whatsapp-green: #25d366;
     --whatsapp-dark: #128c7e;
-    
+
     --font-primary: 'Inter', sans-serif;
     --font-secondary: 'Montserrat', sans-serif;
-    
+
     --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     --gradient-dark: linear-gradient(135deg, var(--dark-color), var(--darker-color));
+    --gradient-premium: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     --gradient-whatsapp: linear-gradient(135deg, var(--whatsapp-green), var(--whatsapp-dark));
 }
 
@@ -38,7 +41,7 @@ body {
     color: var(--light-color);
     overflow-x: hidden;
     background-color: var(--darker-color);
-    cursor: none !important;
+    line-height: 1.6;
 }
 
 /* ==================== */
@@ -119,55 +122,15 @@ body {
 }
 
 @keyframes whatsapp-pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
     }
+
     50% {
         box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
     }
-}
-
-/* ==================== */
-/* EFECTO DE CURSOR VISCOSO */
-/* ==================== */
-
-.viscous-cursor-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-#viscousCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: screen;
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.cursor-glow {
-    position: fixed;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    filter: blur(15px);
-    animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
 }
 
 /* ==================== */
@@ -260,6 +223,8 @@ body {
 .hero-section {
     position: relative;
     min-height: 100vh;
+    padding-top: 100px;
+    /* Space for fixed navbar */
     overflow: hidden;
 }
 
@@ -343,48 +308,6 @@ body {
 .video-control:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
-}
-
-/* Capa de revelación con efecto viscoso */
-.hero-reveal-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.reveal-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-#fluidRevealCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: lighten;
-    pointer-events: none;
-}
-
-.reveal-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.pinimg.com/736x/57/46/8d/57468d8387042651790a73ade6a0d224.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-    transition: opacity 0.3s;
 }
 
 /* Contenido del Hero */
@@ -592,21 +515,110 @@ body {
     letter-spacing: 2px;
 }
 
-.hero-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 2;
+/* ==================== */
+/* SECCIÓN PROCESOS */
+/* ==================== */
+
+.process-section {
+    padding: 100px 0;
+    background: var(--gradient-premium);
+    position: relative;
 }
 
-.particle {
-    position: absolute;
-    color: rgba(59, 130, 246, 0.3);
-    font-size: 2rem;
-    animation: float 15s infinite linear;
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.process-step {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.process-step:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 20px;
+}
+
+.process-step h4 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--light-color);
+}
+
+.process-step p {
+    color: var(--gray-color);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ==================== */
+/* SECCIÓN PARTNERS / TRUSTED BY */
+/* ==================== */
+
+.partners-slider {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    width: max-content;
+    animation: scroll-partners 30s linear infinite;
+    opacity: 0.7;
+    filter: grayscale(1);
+}
+
+.partners-slider:hover {
+    animation-play-state: paused;
+    opacity: 1;
+    filter: grayscale(0);
+}
+
+.partner-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+@keyframes scroll-partners {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50%));
+    }
+}
+
+.partners-section {
+    padding: 60px 0;
+    background: #020617;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    /* Important for the slider */
 }
 
 /* ==================== */
@@ -1367,22 +1379,69 @@ body {
 }
 
 /* Colores específicos para cada herramienta */
-.tool-card .fa-node-js { color: #68a063; }
-.tool-card .fa-server { color: #6c757d; }
-.tool-card .fa-react { color: #61dafb; }
-.tool-card .fa-bootstrap { color: #7952b3; }
-.tool-card .fa-bolt { color: #f6d000; }
-.tool-card .fa-train { color: #f13c1f; }
-.tool-card .fa-cloud { color: #000000; }
-.tool-card .fa-html5 { color: #e34f26; }
-.tool-card .fa-css3-alt { color: #1572b6; }
-.tool-card .fa-js-square { color: #f7df1e; }
-.tool-card .fa-chart-bar { color: #f2c811; }
-.tool-card .fa-table { color: #34a853; }
-.tool-card .fa-puzzle-piece { color: #8a5cf6; }
-.tool-card .fa-brain { color: #06b6d4; }
-.tool-card .fa-cogs { color: #64748b; }
-.tool-card .fa-code-branch { color: #f1502f; }
+.tool-card .fa-node-js {
+    color: #68a063;
+}
+
+.tool-card .fa-server {
+    color: #6c757d;
+}
+
+.tool-card .fa-react {
+    color: #61dafb;
+}
+
+.tool-card .fa-bootstrap {
+    color: #7952b3;
+}
+
+.tool-card .fa-bolt {
+    color: #f6d000;
+}
+
+.tool-card .fa-train {
+    color: #f13c1f;
+}
+
+.tool-card .fa-cloud {
+    color: #000000;
+}
+
+.tool-card .fa-html5 {
+    color: #e34f26;
+}
+
+.tool-card .fa-css3-alt {
+    color: #1572b6;
+}
+
+.tool-card .fa-js-square {
+    color: #f7df1e;
+}
+
+.tool-card .fa-chart-bar {
+    color: #f2c811;
+}
+
+.tool-card .fa-table {
+    color: #34a853;
+}
+
+.tool-card .fa-puzzle-piece {
+    color: #8a5cf6;
+}
+
+.tool-card .fa-brain {
+    color: #06b6d4;
+}
+
+.tool-card .fa-cogs {
+    color: #64748b;
+}
+
+.tool-card .fa-code-branch {
+    color: #f1502f;
+}
 
 /* Controles del carrusel */
 #toolsCarousel .carousel-control-prev,
@@ -2171,12 +2230,12 @@ body.light-mode .faq-section .bg-light {
     .faq-section {
         padding: 5rem 0;
     }
-    
+
     .faq-section .accordion-button {
         padding: 1.2rem !important;
         font-size: 1.1rem !important;
     }
-    
+
     .faq-section .accordion-body {
         padding: 2rem !important;
     }
@@ -2186,42 +2245,42 @@ body.light-mode .faq-section .bg-light {
     .faq-section {
         padding: 4rem 0;
     }
-    
+
     .faq-section .process-timeline {
         padding-left: 1.8rem;
     }
-    
+
     .faq-section .process-timeline::before {
         left: 15px;
     }
-    
+
     .faq-section .step-number {
         width: 35px;
         height: 35px;
         font-size: 1rem;
         margin-right: 1.2rem;
     }
-    
+
     .faq-section .step-content {
         padding: 1.2rem;
     }
-    
+
     .faq-section .accordion-button {
         font-size: 1rem !important;
         padding: 1rem !important;
     }
-    
+
     .faq-section .accordion-button i {
         font-size: 1.1rem;
         margin-right: 0.8rem;
     }
-    
+
     .faq-section table th,
     .faq-section table td {
         padding: 0.8rem !important;
         font-size: 0.9rem !important;
     }
-    
+
     .faq-section .card-title {
         font-size: 1.5rem !important;
     }
@@ -2231,32 +2290,32 @@ body.light-mode .faq-section .bg-light {
     .faq-section {
         padding: 3rem 0;
     }
-    
+
     .faq-section .accordion-button {
         font-size: 0.95rem !important;
         padding: 0.9rem !important;
     }
-    
+
     .faq-section .accordion-body {
         padding: 1.5rem !important;
         font-size: 0.95rem;
     }
-    
+
     .faq-section .process-timeline {
         padding-left: 1.5rem;
     }
-    
+
     .faq-section .step-number {
         width: 30px;
         height: 30px;
         font-size: 0.9rem;
         margin-right: 1rem;
     }
-    
+
     .faq-section table {
         font-size: 0.85rem;
     }
-    
+
     .faq-section .card-title {
         font-size: 1.3rem !important;
     }
@@ -2268,6 +2327,7 @@ body.light-mode .faq-section .bg-light {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2281,12 +2341,29 @@ body.light-mode .faq-section .bg-light {
 }
 
 /* Para aplicar las animaciones en orden */
-.faq-section .accordion-item:nth-child(1) { --item-index: 1; }
-.faq-section .accordion-item:nth-child(2) { --item-index: 2; }
-.faq-section .accordion-item:nth-child(3) { --item-index: 3; }
-.faq-section .accordion-item:nth-child(4) { --item-index: 4; }
-.faq-section .accordion-item:nth-child(5) { --item-index: 5; }
-.faq-section .accordion-item:nth-child(6) { --item-index: 6; }
+.faq-section .accordion-item:nth-child(1) {
+    --item-index: 1;
+}
+
+.faq-section .accordion-item:nth-child(2) {
+    --item-index: 2;
+}
+
+.faq-section .accordion-item:nth-child(3) {
+    --item-index: 3;
+}
+
+.faq-section .accordion-item:nth-child(4) {
+    --item-index: 4;
+}
+
+.faq-section .accordion-item:nth-child(5) {
+    --item-index: 5;
+}
+
+.faq-section .accordion-item:nth-child(6) {
+    --item-index: 6;
+}
 
 
 /* ==================== */
@@ -2642,12 +2719,19 @@ body.light-mode .map-container h5 {
 /* ==================== */
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0) translateX(-50%);
     }
+
     40% {
         transform: translateY(-20px) translateX(-50%);
     }
+
     60% {
         transform: translateY(-10px) translateX(-50%);
     }
@@ -2658,12 +2742,15 @@ body.light-mode .map-container h5 {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 0.5;
     }
+
     90% {
         opacity: 0.5;
     }
+
     100% {
         transform: translateY(-100vh) rotate(360deg);
         opacity: 0;
@@ -2678,7 +2765,7 @@ body.light-mode .map-container h5 {
     .hero-content h1 {
         font-size: 3.8rem;
     }
-    
+
     .impact-value {
         font-size: 3rem;
     }
@@ -2688,27 +2775,27 @@ body.light-mode .map-container h5 {
     .hero-content h1 {
         font-size: 3.2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
+
     .hero-stats {
         margin-top: 3rem;
     }
-    
+
     .stat-number {
         font-size: 2.5rem;
     }
-    
+
     .impact-value {
         font-size: 2.5rem;
     }
-    
+
     .service-card {
         padding: 2.5rem;
     }
-    
+
     .contact-wrapper {
         padding: 3rem;
     }
@@ -2718,45 +2805,45 @@ body.light-mode .map-container h5 {
     .hero-content {
         text-align: center;
     }
-    
+
     .hero-content h1 {
         font-size: 2.8rem;
     }
-    
+
     .hero-badge {
         justify-content: center;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .hero-buttons .btn {
         width: 100%;
         max-width: 300px;
     }
-    
+
     .impact-section h2 {
         font-size: 2.2rem;
     }
-    
+
     .impact-text {
         font-size: 1.1rem;
     }
-    
+
     .service-card {
         padding: 2rem;
     }
-    
+
     .features-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-wrapper {
         padding: 2.5rem;
     }
-    
+
     .whatsapp-float {
         width: 60px;
         height: 60px;
@@ -2764,57 +2851,57 @@ body.light-mode .map-container h5 {
         bottom: 20px;
         right: 20px;
     }
-    
+
     .notification {
         left: 20px;
         right: 20px;
         max-width: calc(100% - 40px);
         bottom: 80px;
     }
-    
+
     .theme-switcher {
         top: 90px;
         right: 20px;
     }
-    
+
     .theme-toggle-btn {
         width: 45px;
         height: 45px;
         font-size: 1.2rem;
     }
-    
+
     .map-container {
         margin-top: 1.5rem;
     }
-    
+
     .tools-carousel-container {
         padding: 1rem;
     }
-    
+
     .tool-card {
         padding: 1.5rem 1rem;
         min-height: 140px;
     }
-    
+
     .tool-icon {
         font-size: 2.5rem;
         margin-bottom: 1rem;
     }
-    
+
     .tool-name {
         font-size: 1rem;
     }
-    
+
     #toolsCarousel .carousel-control-prev,
     #toolsCarousel .carousel-control-next {
         width: 50px;
         height: 50px;
     }
-    
+
     #toolsCarousel .carousel-control-prev {
         left: -15px;
     }
-    
+
     #toolsCarousel .carousel-control-next {
         right: -15px;
     }
@@ -2824,31 +2911,31 @@ body.light-mode .map-container h5 {
     .hero-content h1 {
         font-size: 2.2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
     }
-    
+
     .stat-number {
         font-size: 2rem;
     }
-    
+
     .impact-value {
         font-size: 2rem;
     }
-    
+
     .section-header h2 {
         font-size: 2rem;
     }
-    
+
     .project-content {
         padding: 1.5rem;
     }
-    
+
     .contact-wrapper {
         padding: 2rem;
     }
-    
+
     .whatsapp-float {
         width: 55px;
         height: 55px;
