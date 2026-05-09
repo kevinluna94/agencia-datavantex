@@ -884,6 +884,75 @@ body.landing-page {
     padding: 24px;
 }
 
+#planes .section-head {
+    position: relative;
+    z-index: 1;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#planes {
+    position: relative;
+    background-image: url('public/portadas_landing/hero-horizontal.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+#planes::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(140deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.8) 42%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 0;
+}
+
+#planes .container {
+    position: relative;
+    z-index: 1;
+}
+
+.plans-head-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.plans-logo {
+    width: clamp(120px, 13vw, 170px);
+    height: auto;
+    flex-shrink: 0;
+}
+
+#planes .plans-head-copy {
+    text-align: left;
+    max-width: 640px;
+}
+
+#planes .plans-head-copy .eyebrow {
+    display: inline-flex;
+    margin-bottom: 0;
+}
+
+#planes .plans-head-copy h2 {
+    max-width: 14ch;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: clamp(1.7rem, 3vw, 2.65rem);
+}
+
+#planes .plans-head-copy p {
+    max-width: 54ch;
+    margin-top: 0.9rem;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .value-point,
 .faq-item {
     height: 100%;
@@ -978,6 +1047,26 @@ body.landing-page {
     margin-top: 10px;
     border-top: 1px dashed var(--line);
     color: var(--muted);
+}
+
+.tier-price-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.tier-price {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand) 22%, #000000);
+    color: #ffd37a;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    border: 1px solid color-mix(in srgb, var(--brand) 52%, #ffffff 8%);
+    box-shadow: 0 0 0 1px rgba(244, 167, 0, 0.08) inset;
 }
 
 .tier-example {
@@ -1196,6 +1285,10 @@ body.light-mode .landing-hero::after {
 }
 
 @media (max-width: 991px) {
+    #planes {
+        background-attachment: scroll;
+    }
+
     .landing-page .section {
         padding: 72px 0;
     }
@@ -1270,6 +1363,36 @@ body.light-mode .landing-hero::after {
 }
 
 @media (max-width: 576px) {
+    .tier-price-line {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .plans-head-layout {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .plans-logo {
+        width: 116px;
+    }
+
+    #planes .plans-head-copy {
+        text-align: center;
+    }
+
+    #planes .plans-head-copy h2 {
+        max-width: 13ch;
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #planes .plans-head-copy p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .landing-hero h1 {
         max-width: 100%;
         font-size: clamp(1.6rem, 8vw, 2.25rem);
