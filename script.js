@@ -44,6 +44,9 @@
             if ((currentPage === 'index.html' || currentPage === '') && href === 'index.html') {
                 link.classList.add('active');
             }
+            if (currentPage === 'landing.html' && href === 'landing.html') {
+                link.classList.add('active');
+            }
             if (currentPage === 'about.html' && href === 'about.html') {
                 link.classList.add('active');
             }
@@ -163,30 +166,17 @@
         const sunIcon = document.querySelector('#themeToggle .fa-sun');
         const moonIcon = document.querySelector('#themeToggle .fa-moon');
 
-        if (theme === 'light') {
-            document.body.classList.add('light-mode');
-            if (sunIcon) sunIcon.style.display = 'none';
-            if (moonIcon) moonIcon.style.display = 'inline-block';
-        } else {
-            document.body.classList.remove('light-mode');
-            if (sunIcon) sunIcon.style.display = 'inline-block';
-            if (moonIcon) moonIcon.style.display = 'none';
-        }
+        document.body.classList.remove('light-mode');
+        if (sunIcon) sunIcon.style.display = 'inline-block';
+        if (moonIcon) moonIcon.style.display = 'none';
     }
 
     function initThemeToggle() {
         const themeToggle = document.getElementById('themeToggle');
+        applyTheme('dark');
+        localStorage.setItem('datavantex-theme', 'dark');
         if (!themeToggle) return;
-
-        const savedTheme = localStorage.getItem('datavantex-theme') || 'light';
-        applyTheme(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const isLight = document.body.classList.contains('light-mode');
-            const nextTheme = isLight ? 'dark' : 'light';
-            applyTheme(nextTheme);
-            localStorage.setItem('datavantex-theme', nextTheme);
-        });
+        themeToggle.setAttribute('aria-hidden', 'true');
     }
 
     window.addEventListener('scroll', onScrollNavbar);
