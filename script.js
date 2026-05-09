@@ -182,6 +182,10 @@
                     link_text: (link.textContent || '').trim(),
                     page_path: window.location.pathname
                 });
+
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'ads_conversion_Contacto_1');
+                }
             });
         });
     }
