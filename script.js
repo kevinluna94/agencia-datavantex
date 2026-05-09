@@ -148,6 +148,13 @@
             const phoneNumber = '542954217949';
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'contact_form_submit',
+                contact_channel: 'whatsapp',
+                page_path: window.location.pathname
+            });
+
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Abriendo WhatsApp...';
             submitBtn.disabled = true;
@@ -159,6 +166,23 @@
                 showNotification('Te redirigimos a WhatsApp para continuar.', 'success');
                 contactForm.reset();
             }, 800);
+        });
+    }
+
+    function initWhatsAppTracking() {
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        if (!whatsappLinks.length) return;
+
+        whatsappLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'whatsapp_click',
+                    link_url: link.href,
+                    link_text: (link.textContent || '').trim(),
+                    page_path: window.location.pathname
+                });
+            });
         });
     }
 
@@ -188,5 +212,6 @@
     initSmoothScroll();
     initRevealAnimations();
     initContactForm();
+    initWhatsAppTracking();
     initThemeToggle();
 });
