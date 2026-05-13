@@ -629,6 +629,112 @@ body.light-mode .trust-grid p {
     color: var(--muted);
 }
 
+/* About Hero Section */
+.about-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 64px;
+}
+
+.about-hero-content h2 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-intro {
+    font-size: 1.15rem;
+    color: var(--brand);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.about-hero-content p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
+
+.about-hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.about-photo-card {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid color-mix(in srgb, var(--brand) 35%, var(--line));
+}
+
+/* Priorities Grid */
+.priorities-grid {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 100%, var(--brand) 3%) 0%, color-mix(in srgb, var(--surface) 100%, var(--brand) 1%) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.priorities-grid h3 {
+    font-size: 1.8rem;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.priorities-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.priority-item {
+    padding: 24px;
+    background: color-mix(in srgb, var(--surface) 100%, var(--brand) 2%);
+    border: 1px solid color-mix(in srgb, var(--line) 100%, var(--brand) 20%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.priority-item:hover {
+    border-color: var(--brand);
+    background: color-mix(in srgb, var(--surface) 100%, var(--brand) 5%);
+    box-shadow: 0 8px 24px rgba(244, 167, 0, 0.1);
+}
+
+.priority-item strong {
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.priority-item span {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 .clean-list {
     margin: 0;
     padding-left: 20px;
@@ -1359,6 +1465,25 @@ body.light-mode .landing-hero::after {
 
     .review-chip {
         width: clamp(220px, 52vw, 290px);
+    }
+
+    .about-hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 40px;
+    }
+
+    .about-hero-content h2 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .priorities-list {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .priority-item {
+        padding: 20px;
     }
 }
 
