@@ -1267,6 +1267,140 @@ body.landing-page {
     align-items: stretch;
 }
 
+/* Store page */
+body.store-page {
+    background: #000000;
+    overflow-x: hidden;
+}
+
+.store-hero {
+    background-image:
+        radial-gradient(circle at 12% 22%, rgba(244, 167, 0, 0.22) 0%, transparent 36%),
+        radial-gradient(circle at 84% 12%, rgba(244, 167, 0, 0.14) 0%, transparent 30%),
+        linear-gradient(125deg, #060606 0%, #0b0b0b 55%, #121212 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.store-payment-note {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--brand) 40%, var(--line));
+    background: color-mix(in srgb, var(--surface) 88%, var(--brand) 12%);
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 10px;
+    align-items: start;
+    max-width: 800px;
+}
+
+.store-payment-note i {
+    color: var(--brand);
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+.store-payment-note p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.store-templates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.template-card {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 100%, var(--brand) 2%), var(--surface));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.template-card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--brand) 50%, var(--line));
+    box-shadow: 0 20px 36px rgba(0, 0, 0, 0.2);
+}
+
+.template-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+    background: #0f0f0f;
+}
+
+.template-card-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.template-card-body h3 {
+    margin: 0;
+    font-size: 1.12rem;
+}
+
+.template-card-body p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.template-price {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--brand) 52%, #ffffff 8%);
+    background: color-mix(in srgb, var(--brand) 20%, #000000);
+    color: #ffd37a;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.template-actions {
+    margin-top: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.template-actions .btn {
+    text-align: center;
+    padding: 11px 12px;
+}
+
+.store-page .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.store-page .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.store-page a:focus-visible,
+.store-page button:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+}
+
 .reviews-loop {
     position: relative;
     overflow: hidden;
@@ -1413,6 +1547,11 @@ body.light-mode .landing-hero::after {
     .projects-compact {
         min-height: auto;
         display: block;
+    }
+
+    .store-templates-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
     }
 
     .faq-grid {
@@ -1580,6 +1719,30 @@ body.light-mode .landing-hero::after {
 
     .reviews-track {
         animation-duration: 16s;
+    }
+
+    .store-hero {
+        background-position: center;
+    }
+
+    .store-payment-note {
+        grid-template-columns: 1fr;
+    }
+
+    .store-templates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .template-card-body {
+        padding: 14px;
+    }
+
+    .template-card-body h3 {
+        font-size: 1rem;
+    }
+
+    .template-actions {
+        grid-template-columns: 1fr;
     }
 
     .review-chip {

@@ -53,6 +53,9 @@
             if (currentPage === 'contact.html' && href === 'contact.html') {
                 link.classList.add('active');
             }
+            if (currentPage.toLowerCase() === 'tienda.html' && href.toLowerCase() === 'tienda.html') {
+                link.classList.add('active');
+            }
         });
     }
 
@@ -190,6 +193,31 @@
         });
     }
 
+    function initTemplateCardLinks() {
+        const templateCards = document.querySelectorAll('.template-card[data-demo-url]');
+        if (!templateCards.length) return;
+
+        const openCardDemo = (url) => {
+            if (!url) return;
+            window.open(url, '_blank', 'noopener');
+        };
+
+        templateCards.forEach((card) => {
+            const demoUrl = card.getAttribute('data-demo-url') || '';
+
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('a, button')) return;
+                openCardDemo(demoUrl);
+            });
+
+            card.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                event.preventDefault();
+                openCardDemo(demoUrl);
+            });
+        });
+    }
+
     function applyTheme(theme) {
         const sunIcon = document.querySelector('#themeToggle .fa-sun');
         const moonIcon = document.querySelector('#themeToggle .fa-moon');
@@ -217,5 +245,6 @@
     initRevealAnimations();
     initContactForm();
     initWhatsAppTracking();
+    initTemplateCardLinks();
     initThemeToggle();
 });
