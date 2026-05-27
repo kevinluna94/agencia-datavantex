@@ -1207,6 +1207,13 @@ body.landing-page {
     display: block;
 }
 
+.portfolio-card img.portfolio-image-contain {
+    object-fit: cover;
+    object-position: left top;
+    transform: scale(1.02);
+    transform-origin: left center;
+}
+
 .portfolio-card-body {
     padding: 13px 14px 14px;
 }
