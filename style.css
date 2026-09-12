@@ -249,6 +249,39 @@ body.light-mode .navbar .nav-link:visited {
     border-radius: 2px;
 }
 
+/* Dropdown Menu */
+.navbar .dropdown-menu {
+    background: #0f0f0f;
+    border: 1px solid #262626;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+.navbar .dropdown-item {
+    color: #e5e5e5;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+    background: rgba(244, 167, 0, 0.12);
+    color: var(--brand);
+    transform: translateX(4px);
+}
+
+.navbar .nav-btn-hablemos {
+    margin-left: 14px;
+    padding: 8px 18px !important;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+}
+
 /* Hero */
 .hero {
     position: relative;

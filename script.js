@@ -44,7 +44,7 @@
             if ((currentPage === 'index.html' || currentPage === '') && href === 'index.html') {
                 link.classList.add('active');
             }
-            if (currentPage === 'landing.html' && href === 'landing.html') {
+            if ((currentPage === 'landing.html' || currentPage.includes('-')) && (href === 'landing.html' || href === '#soluciones')) {
                 link.classList.add('active');
             }
             if (currentPage === 'about.html' && href === 'about.html') {
@@ -101,13 +101,37 @@
 
     function getProyectoText(value) {
         const proyectos = {
-            web: 'Pagina para conseguir consultas',
-            data: 'Analisis de oportunidades',
-            both: 'Pagina + estrategia completa',
-            consulting: 'Asesoria para crecimiento',
-            automation: 'Automatizacion comercial'
+            web: 'Desarrollo Web',
+            landing: 'Landing Page',
+            ecommerce: 'Ecommerce',
+            sistemas: 'Sistema comercial a medida',
+            crm: 'CRM o gestión de leads',
+            automatizacion: 'Automatización de procesos',
+            ia: 'Inteligencia Artificial aplicada',
+            datos: 'Dashboards y datos',
+            bi: 'Power BI o Looker Studio',
+            meta_ads: 'Meta Ads',
+            google_ads: 'Google Ads',
+            seo: 'SEO y presencia digital',
+            plantilla: 'Plantilla web lista',
+            no_estoy_seguro: 'No estoy seguro, necesito asesoramiento',
+            otro: 'Otro requerimiento'
         };
         return proyectos[value] || value;
+    }
+
+    function getObjetivoText(value) {
+        const objetivos = {
+            consultas: 'Conseguir más consultas',
+            presencia: 'Mejorar la presencia digital',
+            ventas: 'Organizar ventas y seguimiento',
+            tiempo: 'Ahorrar tiempo y tareas manuales',
+            medir: 'Medir resultados y campañas',
+            automatizar: 'Automatizar procesos',
+            decisiones: 'Tomar mejores decisiones con datos',
+            otro: 'Otro objetivo'
+        };
+        return objetivos[value] || value;
     }
 
     function initContactForm() {
@@ -123,28 +147,31 @@
             const email = document.getElementById('email')?.value.trim() || '';
             const telefono = document.getElementById('telefono')?.value.trim() || '';
             const tipoProyecto = document.getElementById('tipoProyecto')?.value || '';
+            const objetivo = document.getElementById('objetivoNegocio')?.value || '';
             const mensaje = document.getElementById('mensaje')?.value.trim() || '';
             const privacyPolicy = document.getElementById('privacyPolicy');
 
             if (!privacyPolicy || !privacyPolicy.checked) {
-                showNotification('Debes aceptar la politica de privacidad.', 'danger');
+                showNotification('Debés aceptar la política de privacidad.', 'danger');
                 return;
             }
 
             if (!nombre || !email || !mensaje) {
-                showNotification('Completa los campos requeridos para continuar.', 'danger');
+                showNotification('Completá los campos requeridos para continuar.', 'danger');
                 return;
             }
 
-            const proyectoText = tipoProyecto ? `*Necesita:* ${getProyectoText(tipoProyecto)}%0A` : '';
-            const telefonoText = telefono ? `*Telefono:* ${telefono}%0A` : '';
+            const proyectoText = tipoProyecto ? `*Servicio de interés:* ${getProyectoText(tipoProyecto)}%0A` : '';
+            const objetivoText = objetivo ? `*Objetivo principal:* ${getObjetivoText(objetivo)}%0A` : '';
+            const telefonoText = telefono ? `*Teléfono:* ${telefono}%0A` : '';
 
             const whatsappMessage =
-                `*Nueva consulta - DataVantex*%0A%0A` +
+                `*Nueva consulta - DataVantex Agencia*%0A%0A` +
                 `*Nombre:* ${nombre}%0A` +
                 `*Email:* ${email}%0A` +
                 telefonoText +
                 proyectoText +
+                objetivoText +
                 `*Mensaje:*%0A${mensaje}%0A%0A` +
                 `*Fecha:* ${new Date().toLocaleDateString()}`;
 
