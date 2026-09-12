@@ -53,9 +53,6 @@
             if (currentPage === 'contact.html' && href === 'contact.html') {
                 link.classList.add('active');
             }
-            if (currentPage.toLowerCase() === 'tienda.html' && href.toLowerCase() === 'tienda.html') {
-                link.classList.add('active');
-            }
         });
     }
 
