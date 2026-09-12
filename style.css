@@ -609,19 +609,28 @@ body.light-mode .trust-grid p {
 }
 
 .team-photo-wrap {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     position: relative;
-    display: inline-block;
+    display: block;
+    width: 140px;
+    height: 140px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-photo {
-    width: 190px;
-    height: 190px;
+    width: 140px;
+    height: 140px;
+    max-width: 140px;
+    max-height: 140px;
+    aspect-ratio: 1 / 1;
     border-radius: 16px;
     object-fit: cover;
-    border: 3px solid var(--brand);
-    box-shadow: 0 10px 28px rgba(244, 167, 0, 0.22);
+    border: 2px solid var(--brand);
+    box-shadow: 0 8px 24px rgba(244, 167, 0, 0.22);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 .team-member-card:hover .team-photo {
@@ -2549,33 +2558,40 @@ body.js-ready .reveal {
     }
 
     .team-member-card {
-        padding: 44px 34px;
+        padding: 40px 30px;
+    }
+
+    .team-photo-wrap {
+        width: 150px;
+        height: 150px;
     }
 
     .team-photo {
-        width: 210px;
-        height: 210px;
+        width: 150px;
+        height: 150px;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .team-name {
-        font-size: 2.1rem;
+        font-size: 1.85rem;
     }
 
     .team-role {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .team-desc {
-        font-size: 1.18rem;
+        font-size: 1.12rem;
     }
 
     .team-expertise {
-        font-size: 1.12rem;
-        padding: 16px 20px;
+        font-size: 1.08rem;
+        padding: 14px 18px;
     }
 
     .team-summary-text {
-        font-size: 1.45rem;
+        font-size: 1.35rem;
     }
 
     .btn {
@@ -2632,12 +2648,19 @@ body.js-ready .reveal {
     }
 
     .team-member-card {
-        padding: 48px 40px;
+        padding: 44px 36px;
+    }
+
+    .team-photo-wrap {
+        width: 155px;
+        height: 155px;
     }
 
     .team-photo {
-        width: 220px;
-        height: 220px;
+        width: 155px;
+        height: 155px;
+        max-width: 155px;
+        max-height: 155px;
     }
 
     .team-name {
