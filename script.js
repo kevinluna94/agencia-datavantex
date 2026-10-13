@@ -158,22 +158,22 @@
                 return;
             }
 
-            const proyectoText = tipoProyecto ? `*Servicio de interés:* ${getProyectoText(tipoProyecto)}%0A` : '';
-            const objetivoText = objetivo ? `*Objetivo principal:* ${getObjetivoText(objetivo)}%0A` : '';
-            const telefonoText = telefono ? `*Teléfono:* ${telefono}%0A` : '';
-
-            const whatsappMessage =
-                `*Nueva consulta - DataVantex Agencia*%0A%0A` +
-                `*Nombre:* ${nombre}%0A` +
-                `*Email:* ${email}%0A` +
-                telefonoText +
-                proyectoText +
-                objetivoText +
-                `*Mensaje:*%0A${mensaje}%0A%0A` +
-                `*Fecha:* ${new Date().toLocaleDateString()}`;
+            const whatsappMessage = [
+                '*Nueva consulta - DataVantex Agencia*',
+                '',
+                `*Nombre:* ${nombre}`,
+                `*Email:* ${email}`,
+                telefono ? `*Teléfono:* ${telefono}` : '',
+                tipoProyecto ? `*Servicio de interés:* ${getProyectoText(tipoProyecto)}` : '',
+                objetivo ? `*Objetivo principal:* ${getObjetivoText(objetivo)}` : '',
+                `*Mensaje:*`,
+                mensaje,
+                '',
+                `*Fecha:* ${new Date().toLocaleDateString('es-AR')}`
+            ].filter(Boolean).join('\n');
 
             const phoneNumber = '542954217949';
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
@@ -182,17 +182,15 @@
                 page_path: window.location.pathname
             });
 
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Abriendo WhatsApp...';
-            submitBtn.disabled = true;
+            const whatsappWindow = window.open(whatsappURL, '_blank');
+            if (!whatsappWindow) {
+                showNotification('Tu navegador bloqueó la apertura de WhatsApp. Permití las ventanas emergentes e intentá de nuevo.', 'danger');
+                return;
+            }
 
-            setTimeout(() => {
-                window.open(whatsappURL, '_blank', 'noopener');
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                showNotification('Te redirigimos a WhatsApp para continuar.', 'success');
-                contactForm.reset();
-            }, 800);
+            whatsappWindow.opener = null;
+            showNotification('Abrimos WhatsApp para que puedas continuar tu consulta.', 'success');
+            contactForm.reset();
         });
     }
 
