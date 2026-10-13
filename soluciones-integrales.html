@@ -87,8 +87,8 @@
             <div class="container integral-hero-grid">
                 <div class="integral-hero-copy">
                     <span class="integral-eyebrow"><span></span> Tecnología y estrategia para empresas</span>
-                    <h1>Soluciones integrales para que tu empresa <em>avance</em></h1>
-                    <p class="integral-hero-lead">Conectamos desarrollo web, sistemas, automatización, datos y publicidad para resolver lo que tu negocio necesita hoy y acompañar lo que viene.</p>
+                    <h1>Atraé <em>clientes</em> y <em>simplificá el trabajo</em> de tu negocio</h1>
+                    <p class="integral-hero-lead">Conectamos desarrollo web, automatización e inteligencia artificial y publicidad digital para ayudarte a generar oportunidades, organizar consultas y reducir tareas manuales. Trabajamos con negocios de toda Argentina.</p>
                     <ul class="integral-hero-points">
                         <li><i class="fas fa-check" aria-hidden="true"></i> Una propuesta pensada para tus objetivos, no una receta genérica.</li>
                         <li><i class="fas fa-check" aria-hidden="true"></i> Atención directa y trabajo remoto en toda Argentina.</li>
@@ -101,24 +101,16 @@
                 <aside class="integral-form-card" id="consulta" aria-labelledby="consulta-title">
                     <div class="integral-form-heading">
                         <span class="integral-form-kicker">Primer paso</span>
-                        <h2 id="consulta-title">Contanos sobre tu proyecto</h2>
-                        <p>Completá tus datos y te llevamos a WhatsApp para continuar la conversación.</p>
+                        <h2 id="consulta-title">Contanos qué querés mejorar</h2>
+                        <p>Elegí el servicio y contanos brevemente tu necesidad. Continuamos la conversación por WhatsApp.</p>
                     </div>
                     <form class="integral-form" id="contactForm">
                         <div class="row g-3">
-                            <div class="col-sm-6">
+                            <div class="col-12">
                                 <label class="form-label" for="nombre">Nombre *</label>
                                 <input class="form-control" type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Tu nombre" required>
                             </div>
-                            <div class="col-sm-6">
-                                <label class="form-label" for="email">Email *</label>
-                                <input class="form-control" type="email" id="email" name="email" autocomplete="email" placeholder="tu@empresa.com" required>
-                            </div>
-                            <div class="col-sm-6">
-                                <label class="form-label" for="telefono">WhatsApp</label>
-                                <input class="form-control" type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="Tu teléfono">
-                            </div>
-                            <div class="col-sm-6">
+                            <div class="col-12">
                                 <label class="form-label" for="tipoProyecto">¿Qué necesitás? *</label>
                                 <select class="form-select" id="tipoProyecto" name="tipoProyecto" required>
                                     <option value="" selected disabled>Elegí una opción</option>
@@ -133,7 +125,7 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label" for="mensaje">¿Qué te gustaría lograr? *</label>
-                                <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Contanos brevemente sobre tu empresa y tu objetivo." required></textarea>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="3" placeholder="Por ejemplo: necesito una web, quiero conseguir consultas con publicidad o quiero automatizar tareas de mi negocio." required></textarea>
                             </div>
                             <div class="col-12">
                                 <div class="form-check integral-consent">
@@ -145,6 +137,10 @@
                                 <button class="btn btn-whatsapp w-100 integral-submit" type="submit" id="submitBtn">
                                     <i class="fab fa-whatsapp" aria-hidden="true"></i> Continuar por WhatsApp
                                 </button>
+                                <p class="integral-whatsapp-note">Se abrirá WhatsApp con tu consulta preparada. Tocá Enviar para iniciar la conversación.</p>
+                                <a class="integral-whatsapp-fallback" id="whatsappFallback" href="https://wa.me/542954217949" hidden>
+                                    No se pudo abrir una nueva ventana. Abrir WhatsApp en esta pestaña
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -346,20 +342,32 @@
                 </div>
                 <div class="integral-faq-list">
                     <details>
-                        <summary>¿Trabajan con empresas de cualquier provincia?</summary>
-                        <p>Sí. Atendemos proyectos de toda Argentina de manera remota, coordinando las reuniones y entregas online.</p>
+                        <summary>¿Trabajan con negocios de otras provincias?</summary>
+                        <p>Sí. Trabajamos de forma remota con empresas, comercios, profesionales y emprendedores de toda Argentina. Coordinamos reuniones, avances y entregas online.</p>
                     </details>
                     <details>
-                        <summary>¿Tengo que contratar todas las soluciones?</summary>
-                        <p>No. Analizamos tu necesidad y proponemos solo el alcance que tenga sentido para tu situación. Podés empezar por una solución y sumar otras más adelante.</p>
+                        <summary>¿Tengo que contratar todos los servicios?</summary>
+                        <p>No. Podés contratar una web, una automatización, un sistema o la gestión de publicidad por separado. Primero evaluamos tu necesidad y proponemos un alcance adecuado para tu negocio.</p>
                     </details>
                     <details>
-                        <summary>¿Cómo se define el presupuesto?</summary>
-                        <p>Depende del objetivo, el alcance y las integraciones necesarias. Primero entendemos el proyecto y después preparamos una propuesta a medida.</p>
+                        <summary>¿Pueden trabajar sobre mi web o mis herramientas actuales?</summary>
+                        <p>Sí. Revisamos lo que ya utilizás y evaluamos qué se puede mejorar o integrar antes de proponerte cambios.</p>
                     </details>
                     <details>
-                        <summary>¿Cómo doy el primer paso?</summary>
-                        <p>Completá el formulario de esta página. Se abrirá WhatsApp con tu consulta lista para que podamos conversar sobre tu proyecto.</p>
+                        <summary>¿Cuánto cuesta y cuánto demora?</summary>
+                        <p>Depende del servicio, el alcance y las integraciones necesarias. Después de conocer tu necesidad, te presentamos una propuesta con presupuesto y tiempos estimados.</p>
+                    </details>
+                    <details>
+                        <summary>¿El presupuesto para anuncios está incluido?</summary>
+                        <p>La gestión de campañas y la inversión destinada a Google Ads o Meta Ads son conceptos separados. Ambos se detallan en la propuesta para que sepas cuánto destinás al servicio y cuánto a los anuncios.</p>
+                    </details>
+                    <details>
+                        <summary>¿Pueden garantizar ventas o una posición en Google?</summary>
+                        <p>No garantizamos una cantidad de ventas ni una posición fija. Definimos una estrategia, implementamos las herramientas acordadas y evaluamos los resultados para detectar mejoras.</p>
+                    </details>
+                    <details>
+                        <summary>¿Cómo empezamos?</summary>
+                        <p>Completá el formulario o escribinos directamente por WhatsApp. Conversamos sobre tu negocio y lo que querés mejorar para definir el próximo paso.</p>
                     </details>
                 </div>
             </div>

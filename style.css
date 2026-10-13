@@ -2750,7 +2750,7 @@ body.integral-landing {
 }
 
 .integral-hero h1 em {
-    color: var(--brand);
+    color: #F4A700;
     font-style: normal;
 }
 
@@ -2905,6 +2905,36 @@ body.integral-landing {
 .integral-submit:hover,
 .integral-submit:focus-visible {
     color: #052d17;
+}
+
+.integral-whatsapp-note {
+    margin: 11px 0 0;
+    color: #bcbcbc;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.integral-whatsapp-fallback {
+    display: block;
+    margin-top: 12px;
+    padding: 11px 13px;
+    border: 1px solid rgba(244, 167, 0, 0.4);
+    border-radius: 10px;
+    color: #ffd778;
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.integral-whatsapp-fallback:hover {
+    border-color: #F4A700;
+    color: #fff;
+}
+
+.integral-whatsapp-fallback[hidden] {
+    display: none;
 }
 
 .integral-form-foot {

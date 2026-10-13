@@ -140,6 +140,62 @@
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            if (document.body.classList.contains('integral-landing') && contactForm.closest('.integral-form')) {
+                if (!contactForm.checkValidity()) {
+                    contactForm.reportValidity();
+                    return;
+                }
+
+                const nombre = document.getElementById('nombre').value.trim();
+                const tipoProyecto = document.getElementById('tipoProyecto').value;
+                const mensaje = document.getElementById('mensaje').value.trim();
+                const whatsappMessage = [
+                    'Hola, equipo de DataVantex. Vi su página y quiero consultar.',
+                    '',
+                    `Nombre: ${nombre}`,
+                    `Servicio de interés: ${getProyectoText(tipoProyecto)}`,
+                    `Qué me gustaría lograr: ${mensaje}`
+                ].join('\n');
+                const phoneNumber = '542954217949';
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                const whatsappFallback = document.getElementById('whatsappFallback');
+
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'contact_form_submit',
+                    contact_channel: 'whatsapp',
+                    page_path: window.location.pathname
+                });
+
+                const showWhatsAppFallback = () => {
+                    if (whatsappFallback) whatsappFallback.hidden = false;
+                    showNotification('No pudimos abrir WhatsApp en una nueva ventana. Usá el enlace que aparece debajo del botón para continuar.', 'danger');
+                };
+
+                if (whatsappFallback) {
+                    whatsappFallback.href = whatsappURL;
+                    whatsappFallback.hidden = true;
+                }
+
+                let whatsappWindow;
+                try {
+                    whatsappWindow = window.open(whatsappURL, '_blank');
+                } catch (error) {
+                    console.error('No se pudo abrir WhatsApp desde el formulario.', error);
+                    showWhatsAppFallback();
+                    return;
+                }
+
+                if (!whatsappWindow) {
+                    showWhatsAppFallback();
+                    return;
+                }
+
+                whatsappWindow.opener = null;
+                contactForm.reset();
+                return;
+            }
+
             const nombre = document.getElementById('nombre')?.value.trim() || '';
             const email = document.getElementById('email')?.value.trim() || '';
             const telefono = document.getElementById('telefono')?.value.trim() || '';
@@ -203,7 +259,9 @@
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     event: 'whatsapp_click',
-                    link_url: link.href,
+                    link_url: link.classList.contains('integral-whatsapp-fallback')
+                        ? 'https://wa.me/542954217949'
+                        : link.href,
                     link_text: (link.textContent || '').trim(),
                     page_path: window.location.pathname
                 });
