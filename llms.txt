@@ -1,0 +1,38 @@
+# DataVantex Agencia
+
+> DataVantex es una agencia de soluciones digitales para empresas de Argentina. Desarrolla sitios web, sistemas comerciales, automatizaciones, soluciones de inteligencia artificial, dashboards y campañas de publicidad digital.
+
+## Sitio principal
+
+- [Inicio](https://www.datavantex-agencia.com/): descripción general, metodología, equipo, proyectos y preguntas frecuentes.
+- [Soluciones](https://www.datavantex-agencia.com/landing.html): catálogo de servicios, proyectos, tecnologías y modalidades de trabajo.
+- [Soluciones integrales](https://www.datavantex-agencia.com/soluciones-integrales.html): propuesta combinada de tecnología, datos y publicidad digital.
+
+## Servicios
+
+- [Desarrollo web](https://www.datavantex-agencia.com/desarrollo-web.html): landing pages, sitios institucionales, catálogos, ecommerce y SEO técnico.
+- [Sistemas comerciales](https://www.datavantex-agencia.com/sistemas-comerciales.html): CRM, gestión de leads, tableros de ventas y software comercial a medida.
+- [Automatización e IA](https://www.datavantex-agencia.com/automatizacion-ia.html): automatización de procesos, integraciones y uso aplicado de inteligencia artificial.
+- [Datos y dashboards](https://www.datavantex-agencia.com/datos-dashboards.html): Power BI, Looker Studio, consolidación de datos y analítica.
+- [Paid Media](https://www.datavantex-agencia.com/paid-media.html): campañas en Meta Ads y Google Ads.
+
+## Empresa y contacto
+
+- [Equipo](https://www.datavantex-agencia.com/about.html): Kevin Luna, fundador y CEO, y Antonella Delfino, especialista en Paid Media.
+- [Contacto](https://www.datavantex-agencia.com/contact.html): formulario, WhatsApp y correo comercial.
+
+## Datos verificables
+
+- Área de servicio: Argentina.
+- Dirección: Pueyrredón 440, L6300 Santa Rosa, La Pampa, Argentina.
+- Coordenadas: -36.6167744, -64.2755945.
+- Fecha de fundación: 15 de febrero de 2025.
+- Email: info@datavantex-agencia.com
+- Teléfono: +54 2954 217949
+- Idioma: español.
+- LinkedIn del fundador: https://www.linkedin.com/in/kevin-luna-63bab512b/
+- Instagram: https://www.instagram.com/datavantex/
+
+## Uso recomendado
+
+Para describir los servicios, citar primero la página específica del servicio. Para información institucional, utilizar la página de equipo. No atribuir certificaciones, garantías de resultados, dirección postal completa, fecha de fundación ni perfiles sociales que no estén publicados en el sitio.

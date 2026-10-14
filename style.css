@@ -2684,6 +2684,24 @@ body.integral-landing {
     color: var(--brand);
 }
 
+.integral-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.integral-nav-list a {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.integral-nav-list a:hover {
+    color: var(--brand);
+}
+
 .integral-hero {
     position: relative;
     isolation: isolate;
@@ -3475,6 +3493,10 @@ body.integral-landing {
 
     .integral-header-cta {
         font-size: 0.82rem;
+    }
+
+    .integral-nav-list li:not(:last-child) {
+        display: none;
     }
 
     .integral-hero {
