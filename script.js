@@ -131,6 +131,24 @@
         return objetivos[value] || value;
     }
 
+    let lastIntegralWhatsAppConversion = null;
+
+    function trackIntegralWhatsAppConversion() {
+        if (!document.body.classList.contains('integral-landing')) return;
+        const now = Date.now();
+        // Evita contar dos veces un doble clic o una acción repetida inmediata.
+        if (lastIntegralWhatsAppConversion !== null && now - lastIntegralWhatsAppConversion < 2000) return;
+        if (typeof window.gtag !== 'function') return;
+        try {
+            window.gtag('event', 'conversion', {
+                send_to: 'AW-18043416114/tp6CCPPv-psdELLc4ptD'
+            });
+            lastIntegralWhatsAppConversion = now;
+        } catch (error) {
+            console.error('No se pudo registrar la apertura de WhatsApp.', error);
+        }
+    }
+
     function initContactForm() {
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -160,13 +178,6 @@
                 const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
                 const whatsappFallback = document.getElementById('whatsappFallback');
 
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: 'contact_form_submit',
-                    contact_channel: 'whatsapp',
-                    page_path: window.location.pathname
-                });
-
                 const showWhatsAppFallback = () => {
                     if (whatsappFallback) whatsappFallback.hidden = false;
                     showNotification('No pudimos abrir WhatsApp en una nueva ventana. Usá el enlace que aparece debajo del botón para continuar.', 'danger');
@@ -192,6 +203,13 @@
                 }
 
                 whatsappWindow.opener = null;
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'contact_form_submit',
+                    contact_channel: 'whatsapp',
+                    page_path: window.location.pathname
+                });
+                trackIntegralWhatsAppConversion();
                 contactForm.reset();
                 return;
             }
@@ -255,18 +273,22 @@
         if (!whatsappLinks.length) return;
 
         whatsappLinks.forEach((link) => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (event) => {
+                if (event.defaultPrevented) return;
+                const isIntegralLanding = document.body.classList.contains('integral-landing');
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     event: 'whatsapp_click',
-                    link_url: link.classList.contains('integral-whatsapp-fallback')
+                    link_url: isIntegralLanding || link.classList.contains('integral-whatsapp-fallback')
                         ? 'https://wa.me/542954217949'
                         : link.href,
                     link_text: (link.textContent || '').trim(),
                     page_path: window.location.pathname
                 });
 
-                if (typeof gtag !== 'undefined') {
+                if (isIntegralLanding) {
+                    trackIntegralWhatsAppConversion();
+                } else if (typeof gtag !== 'undefined') {
                     gtag('event', 'ads_conversion_Contacto_1');
                 }
             });
