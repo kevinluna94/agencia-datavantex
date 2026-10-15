@@ -2530,6 +2530,8 @@ body.js-ready .reveal {
     }
 
     .hero-home .hero-actions .btn {
+        box-sizing: border-box;
+        max-width: 100%;
         width: 100%;
     }
 
