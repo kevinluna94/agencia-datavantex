@@ -41,7 +41,7 @@
             const href = link.getAttribute('href') || '';
             link.classList.remove('active');
 
-            if ((currentPage === 'index.html' || currentPage === '') && href === 'index.html') {
+            if ((currentPage === 'index.html' || currentPage === '') && (href === '/' || href === 'index.html')) {
                 link.classList.add('active');
             }
             if ((currentPage === 'landing.html' || currentPage.includes('-')) && (href === 'landing.html' || href === '#soluciones')) {
